@@ -182,11 +182,11 @@ header{
 
 .cart_product_info_text{
     padding: 1rem;
-    text-align: center;
+    text-align: justify;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items:flex-start;
     gap: 0.5rem;
     flex-grow: 1;
 }
