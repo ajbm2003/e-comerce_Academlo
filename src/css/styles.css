@@ -193,11 +193,29 @@ header{
 
 .cart_total{
     height: 17%;
-    background-color:aquamarine;
+    background-color:whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
 }
+
+.cart_total_info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_buy{
+    background-color: var(--academlo_color);
+    padding: 1rem;
+    box-shadow:1rem 1rem 1rem rgba(0,0,0,0.1);
+}
+
 
 @media screen and (min-width: 700px){
     .cart{
         width: 33%;
     }
+
 }
