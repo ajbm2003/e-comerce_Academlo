@@ -198,7 +198,6 @@ header{
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
-    gap: 1rem;
 }
 
 .cart_total_info{
@@ -210,6 +209,11 @@ header{
     background-color: var(--academlo_color);
     padding: 1rem;
     box-shadow:1rem 1rem 1rem rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.bi-bag-x{
+    font-size: 3rem;
 }
 
 

@@ -17,6 +17,10 @@ async function drawProducts(db){
     let html = '';
 
     for (const {id, category, image, name, price, quantity} of db.products){
+        const iconAdd = quantity ? `<button class='bx bxs-cart-add' id="${id}"></button>` : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-x" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M6.146 8.146a.5.5 0 0 1 .708 0L8 9.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 10l1.147 1.146a.5.5 0 0 1-.708.708L8 10.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 10 6.146 8.854a.5.5 0 0 1 0-.708z"/>
+        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+        </svg>`
         html += `<div class="product">
                     <div class="product_img"> 
                         <img src='${image}'/> 
@@ -26,7 +30,7 @@ async function drawProducts(db){
                         <p>
                             ${price}.0 USD <strong>${quantity} units</strong>
                         </p>
-                        <button class='bx bxs-cart-add' id="${id}"></button>
+                        ${iconAdd}
                     </div>
                 </div> `;
     }
@@ -154,7 +158,7 @@ function handleOptionsCart(db){
 
 async function main(){
     const db= {
-        products: await getProducts(),
+        products: JSON.parse(localStorage.getItem('products')) ||(await getProducts()),
         cart:JSON.parse(localStorage.getItem('cart'))||{},
     };
 
@@ -164,6 +168,30 @@ async function main(){
     drawProducts_in_cart(db);
     handleOptionsCart(db);
 
+    document.querySelector(".btn_buy").addEventListener("click", (e) =>{
+        let newProducts = [];
+
+        for(const product of db.products){
+            if(db.cart[product.id]){
+                newProducts.push({
+                    ...product,
+                    quantity: product.quantity - db.cart[product.id].amount
+                })
+            }else{
+                newProducts.push(product);
+            }
+        }
+
+        db.products = newProducts;
+        db.cart= {};
+        setLocalStorage("products", db.products);
+        setLocalStorage("cart", db.cart);
+
+        drawProducts_in_cart(db)
+        drawProducts(db)
+        darwTotal(db)
+
+    });
 }
 
 window.addEventListener("load", main) 
