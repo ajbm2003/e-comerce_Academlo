@@ -215,7 +215,21 @@ header{
 .bi-bag-x{
     font-size: 3rem;
 }
-
+.total_products{
+    position: absolute;
+    top: 24px;
+    left: 1fr;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5rem;
+    border-radius: 50%;
+    font-weight: 700;
+}
 
 @media screen and (min-width: 700px){
     .cart{
