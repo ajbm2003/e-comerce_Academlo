@@ -3,16 +3,24 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    gap: 1rem;
 }
 
 :root{
     --height_nav: 50px;
     --academlo_color:hsl(354, 78%, 60%);
+    --second_color: whitesmoke;
+    --font_color: black;
+    --sombra:  #100907;
+    --buttpn_card_color:black;
+    --show_button_color:whitesmoke;
 }
 
 a{
     text-decoration: none;
+}
+
+i{
+    cursor: pointer;
 }
 
 img{
@@ -22,13 +30,19 @@ img{
 
 header{
     height: var(--height_nav);
-    background-color: whitesmoke;
+    background-color: var(--second_color);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     display: flex;
+    z-index: 1000;
 }
+
+p, button, h1, h3,i , h4, span{
+    color: var(--font_color);
+}
+
 
 .navbar{
     max-width: 1024px;
@@ -46,24 +60,62 @@ header{
 }
 
 .store_button{
-    color: black;
+    color: var(--font_color);
 }
 
 .home{
     display: flex;
     align-items: center; 
+    gap: 0.5rem;
+}
+
+.home a {
+    color:var(--font_color);
+}
+
+.logo{
+    display: flex;
+    gap: .3rem;
+    align-items: center;
 }
 
 .cart_section{
     display: flex;
+    gap: 0;
     align-items: flex-end;
+    justify-content: end;
 }
 
 .navbar > .cart_section > button{
+    font-weight: 400;
     font-size: 2rem;
+    line-height: 1;
+    text-rendering: auto;
+    display: inline-block;
+    order: 1;
     background-color: transparent;
-    border: 0;
-    margin-left: auto;
+    border: none;
+
+}
+
+.bxs-moon{
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    display: none;
+    font-size: 2rem;
+}
+
+.bxs-sun{
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    display: inline-block;
+    font-size: 2rem;
 }
 
 
@@ -101,12 +153,13 @@ header{
     max-width: 1024px;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     gap:0.8rem;
 }
 
 h1{
     font-size: 2rem;
+    color: var(--font_color);
+    padding-top: var(--height_nav);
 }
 
 .main_text{
@@ -123,8 +176,8 @@ h1{
     width: 160px;
     padding: 0.9rem;
     font-size: 1rem;
-    background-color: black;
-    color: whitesmoke;
+    background-color: var(--sombra);
+    color: var(--show_button_color);
     text-align: center;
 }
 
@@ -134,7 +187,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
+    padding-top: 2rem;;
 }
 
 .botonera{
@@ -155,13 +208,13 @@ h1{
 }
 
 .botonera button:hover{
-    background-color: black;
-    color: whitesmoke;
+    background-color: var(--sombra);
+    color: var(--show_button_color);
 }
 
 .button_click{
-    background-color: black;
-    color: whitesmoke;
+    background-color: var(--font_color);
+    color: var(--second_color);
 }
 
 .container{
@@ -194,6 +247,24 @@ h1{
     padding: 1rem;
 }
 
+.product_img img:hover{
+    animation: movimiento .7s;
+
+}
+
+.bx-plus, .bx-minus, .bxs-trash{
+    color: var(--buttpn_card_color);
+}
+
+@keyframes movimiento {
+    0% {
+      transform: translatey(0);
+    }
+    100% {
+      transform: translatey(-20px); 
+    }
+  }
+
 .product_info{
     padding: 1rem;
     text-align: center;
@@ -215,8 +286,8 @@ h1{
     font-size: 2rem;
     padding: 0.5rem;
     border-radius: 50%;
-    background-color: black;
-    color: whitesmoke;
+    background-color: var(--font_color);
+    color: var(--second_color);
 }
 
 .cart{
@@ -225,11 +296,12 @@ h1{
     width: 100%;
     max-width: 700px;
     height: 100vh;
-    background-color:whitesmoke;
+    background-color:var(--second_color);
     position: fixed;
     gap: 1rem;
     transition: transform 0.5s;
     transform: translateX(100%);
+    z-index: 100000;
 }
 
 .cart--show{
@@ -243,8 +315,12 @@ h1{
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: whitesmoke;
+    background-color: var(--second_color);
     align-items: center;
+}
+
+.bi-moon-fill{
+    color: var(--font_color);
 }
 
 .bx-exit{
@@ -252,6 +328,7 @@ h1{
     background-color: transparent;
     border: 0;
     margin-left: auto;
+    cursor: pointer;
 }
 
 .cart_products{
@@ -266,7 +343,6 @@ h1{
     box-shadow:0 0.5rem 1rem rgba(0,0,0,0.1);
     padding: 1rem;
     align-items: center;
-
 }
 
 .cart_product_img{
@@ -282,19 +358,18 @@ h1{
 }
 
 .cart_product_info_text{
-    padding: 1rem;
     text-align: justify;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:flex-start;
-    gap: 0.5rem;
+    gap: 0rem;
     flex-grow: 1;
 }
 
 .cart_total{
     height: 17%;
-    background-color:whitesmoke;
+    background-color:var(--second_color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -322,8 +397,8 @@ h1{
     left: 1fr;
     width: 20px;
     height: 20px;
-    background-color: black;
-    color: whitesmoke;
+    background-color: var(--font_color);
+    color: var(--second_color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -372,3 +447,14 @@ h1{
     }
 
 }
+
+body.dark-mode{
+    background-color:hsl(249, 19%, 14%) ;
+    --academlo_color:hsl(182, 53%, 74%);
+    --second_color: hsl(246, 16%, 12%);
+    --font_color: whitesmoke;
+    --sombra: hsl(246, 16%, 12%);
+    --buttpn_card_color: black;
+}
+
+ 

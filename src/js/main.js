@@ -1,5 +1,5 @@
 import { drawProducts, drawProducts_in_cart, darwTotal } from "./functions/draw.js";
-import { handleAddCart, handleBuy, handleCartShow, handleOptionsCart, scrollWindow} from "./functions/handles.js";
+import { handleAddCart, handleBuy, handleCartShow, handleOptionsCart, scrollWindow, filterProductos, darkMode} from "./functions/handles.js";
 import { getProducts} from "./functions/helpers.js";
 
 async function main(){
@@ -14,10 +14,10 @@ async function main(){
     drawProducts_in_cart(db);
     handleOptionsCart(db);
     handleBuy(db);
-    darwTotal(db);
+    darwTotal(db)
+    filterProductos();
     scrollWindow();
-    var mixer = mixitup('.productos');
-    mixer.filter('.category');
+    darkMode();
 }
 
 window.addEventListener("load", main) 

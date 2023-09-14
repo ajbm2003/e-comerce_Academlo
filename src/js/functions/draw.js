@@ -29,7 +29,7 @@ export async function drawProducts(db){
                         <img src='${image}'/> 
                     </div>
                     <div class ="product_info">
-                        <h3>${name} | 
+                        <h3>${name} 
                         <p>
                             ${price}.0 USD <strong>${quantity} units</strong>
                         </p>
