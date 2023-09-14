@@ -451,7 +451,7 @@ h1{
 body.dark-mode{
     background-color:hsl(249, 19%, 14%) ;
     --academlo_color:hsl(182, 53%, 74%);
-    --second_color: hsl(246, 16%, 12%);
+    --second_color: #162544 ;
     --font_color: whitesmoke;
     --sombra: hsl(246, 16%, 12%);
     --buttpn_card_color: black;
