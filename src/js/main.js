@@ -1,5 +1,5 @@
 import { drawProducts, drawProducts_in_cart, darwTotal } from "./functions/draw.js";
-import { handleAddCart, handleBuy, handleCartShow, handleOptionsCart} from "./functions/handles.js";
+import { handleAddCart, handleBuy, handleCartShow, handleOptionsCart, scrollWindow} from "./functions/handles.js";
 import { getProducts} from "./functions/helpers.js";
 
 
@@ -16,6 +16,7 @@ async function main(){
     handleOptionsCart(db);
     handleBuy(db);
     darwTotal(db);
+    scrollWindow();
 }
 
 window.addEventListener("load", main) 

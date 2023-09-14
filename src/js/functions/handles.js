@@ -106,3 +106,31 @@ export function handleBuy(db){
 
     });
 }
+
+export function scrollWindow(){
+    let isScrolled = false;
+
+    function handleScroll() {
+      const scrollY = window.scrollY;
+    
+      if (scrollY > 200) {
+        if (!isScrolled) {
+        let header = document.querySelector("header");
+          header.style.backgroundColor = "whitesmoke";
+          header.style.transition= "1s ease-in-out";
+          header.style.boxShadow= "0 1rem 1rem rgba(0, 0, 0, .15)";
+          isScrolled = true; 
+        
+        }
+      } else {
+        if (isScrolled) {
+            let header = document.querySelector("header");
+            header.style.backgroundColor = "transparent";
+            header.style.boxShadow= "none"
+            isScrolled = false;
+        }
+      }
+    }
+    
+    window.addEventListener("scroll", handleScroll);
+}
