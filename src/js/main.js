@@ -1,4 +1,4 @@
-import { drawProducts, drawProducts_in_cart, darwTotal , drawPoruductCard} from "./functions/draw.js";
+import {  drawProducts,drawProducts_in_cart, darwTotal , drawPoruductCard} from "./functions/draw.js";
 import { handleAddCart, handleBuy, handleCartShow, handleOptionsCart, scrollWindow, filterProductos, darkMode} from "./functions/handles.js";
 import { getProducts} from "./functions/helpers.js";
 
@@ -15,14 +15,15 @@ async function main(){
     handleOptionsCart(db);
     handleBuy(db);
     darwTotal(db)
-    filterProductos();
-    scrollWindow();
     darkMode();
     drawPoruductCard(db);
 
     document.querySelector('.menu-toggle').addEventListener('click', () => {
         document.querySelector('.nav_links').classList.toggle('active');
     });
+    scrollWindow();
+    filterProductos();
+   
 }
 
 window.addEventListener('load', function () {

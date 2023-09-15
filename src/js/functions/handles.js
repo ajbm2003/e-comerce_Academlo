@@ -137,6 +137,7 @@ export function scrollWindow(){
 
 export function filterProductos(){
     var mixer = mixitup('.productos');
+    drawProducts(db);
     mixer.filter('.category');
 }
 
