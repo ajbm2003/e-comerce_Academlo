@@ -19,6 +19,10 @@ async function main(){
     scrollWindow();
     darkMode();
     drawPoruductCard(db);
+
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+        document.querySelector('.nav_links').classList.toggle('active');
+    });
 }
 
 window.addEventListener("load", main) 

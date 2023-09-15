@@ -89,7 +89,7 @@ export function drawPoruductCard(db){
 
                 card+=`
                 <i class='bx bxs-x-circle'></i>
-                <div class="product mix ${productFound.category}">
+                <div class="product_card mix ${productFound.category}">
                 <div class="card_product_img"> 
                     <img src='${productFound.image}'/> 
                 </div>
