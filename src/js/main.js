@@ -25,4 +25,9 @@ async function main(){
     });
 }
 
-window.addEventListener("load", main) 
+window.addEventListener('load', function () {
+    setTimeout(function () {
+        document.querySelector('.loader-wrapper').style.display = 'none';
+        main();
+    }, 2000);
+});
