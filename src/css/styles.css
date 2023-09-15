@@ -8,11 +8,15 @@
 :root{
     --height_nav: 50px;
     --academlo_color:hsl(354, 78%, 60%);
-    --second_color: whitesmoke;
+    --second_color: #D6D3D5 ;
     --font_color: black;
     --sombra:  #100907;
     --buttpn_card_color:black;
     --show_button_color:whitesmoke;
+}
+
+.bx{
+    font-size: 2rem;
 }
 
 a{
@@ -256,6 +260,25 @@ h1{
     color: var(--buttpn_card_color);
 }
 
+.footer{
+    background-color: var(--second_color);
+    height: auto;
+    width: 100%;
+    padding: 5rem 2rem;
+}
+
+.content_footer{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+
 @keyframes movimiento {
     0% {
       transform: translatey(0);
@@ -275,7 +298,11 @@ h1{
     align-items: center;
     gap: 0.5rem;
     flex-grow: 1;
+}
 
+.product_info h3 :hover{
+    color: var(--academlo_color);
+    cursor: pointer;
 }
 
 .bx{
@@ -407,6 +434,43 @@ h1{
     font-weight: 700;
 }
 
+.text{
+    background-color: var(--academlo_color);
+    color: var(--second_color);
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.card_show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000000;
+}
+
+.product_window {
+    background-color: var(--second_color); 
+    border-radius: 1rem;
+    box-shadow:0 0.5rem 1rem rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.bxs-x-circle{
+    font-size: 2rem;
+}
+
+
 @media screen and (min-width: 600px){
     .cart{
         width: 33%;
@@ -444,6 +508,12 @@ h1{
   
         grid-template-columns:1fr 1fr 1fr 1fr;
         gap: 0.5rem;
+    }
+
+    .content_footer {
+        flex-direction: row;
+       gap: 10rem;
+       justify-content: center;
     }
 
 }

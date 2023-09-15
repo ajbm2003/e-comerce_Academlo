@@ -1,4 +1,4 @@
-import { drawProducts, drawProducts_in_cart, darwTotal } from "./functions/draw.js";
+import { drawProducts, drawProducts_in_cart, darwTotal , drawPoruductCard} from "./functions/draw.js";
 import { handleAddCart, handleBuy, handleCartShow, handleOptionsCart, scrollWindow, filterProductos, darkMode} from "./functions/handles.js";
 import { getProducts} from "./functions/helpers.js";
 
@@ -18,6 +18,7 @@ async function main(){
     filterProductos();
     scrollWindow();
     darkMode();
+    drawPoruductCard(db);
 }
 
 window.addEventListener("load", main) 

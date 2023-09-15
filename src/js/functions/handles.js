@@ -163,3 +163,11 @@ export function darkMode(){
         }
     })
 }
+
+export function exit_card(){
+    const button = document.querySelector(".bxs-x-circle");
+    let card = document.querySelector(".card_show");
+    button.addEventListener("click", function(){
+        card.style.display = "none";
+    });
+}
